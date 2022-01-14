@@ -10,6 +10,6 @@ namespace PSReadLineCustomizations
     {
         public string Key { get; set; }
         public Description Description { get; set; }
-        public string ScriptBlockPath { get; set; }
+        public string ScriptBlock { get; set; }
     }
 }

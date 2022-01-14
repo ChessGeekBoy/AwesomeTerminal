@@ -9,6 +9,6 @@ namespace PSReadLineCustomizations
     public interface IKeyBinding
     {
         string Key { get; }
-        string ScriptBlockPath { get; }
+        string ScriptBlock { get; }
     }
 }

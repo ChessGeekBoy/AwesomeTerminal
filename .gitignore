@@ -1,1 +1,4 @@
 *.csproj
+*.gitignore
+*.editorconfig
+*.cache
