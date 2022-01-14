@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 
 namespace PSReadLineCustomizations
 {
@@ -12,12 +15,15 @@ namespace PSReadLineCustomizations
             this.JsonStream = new FileStream(jsonFilePath, FileMode.Open, FileAccess.ReadWrite);
         }
 
-        public void SetKeyBinding(IKeyBinding keyBinding)
+        public async void SetKeyBinding(IKeyBinding keyBinding)
         {
-
+            List<IKeyBinding> keyBindings = await JsonSerializer.DeserializeAsync<List<IKeyBinding>>
+                (JsonStream);
+            keyBindings.Add(keyBinding);
+            await JsonSerializer.SerializeAsync<List<IKeyBinding>>(this.JsonStream, keyBindings);
         }
 
-        public void DeleteKeyBinding(IKeyBinding keyBinding)
+        public async void DeleteKeyBinding(IKeyBinding keyBinding)
         {
 
         }
