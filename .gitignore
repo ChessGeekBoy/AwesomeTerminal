@@ -5,3 +5,5 @@
 *.dll
 *.txt
 *.gitignore
+.fudtcache.v1
+*.suo
