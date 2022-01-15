@@ -10,5 +10,6 @@ namespace PSReadLineCustomizations
     {
         string Key { get; }
         string ScriptBlock { get; }
+        Description Description { get; }
     }
 }

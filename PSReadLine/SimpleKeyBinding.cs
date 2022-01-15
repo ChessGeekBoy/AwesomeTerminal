@@ -6,17 +6,15 @@ using System.Threading.Tasks;
 
 namespace PSReadLineCustomizations
 {
-    public class KeyBinding : IKeyBinding
+    public class SimpleKeyBinding : IKeyBinding
     {
         public string Key { get; set; }
         public Description Description { get; set; }
         public string ScriptBlock { get; set; }
 
-        public KeyBinding(string key, string scriptBlock, Description description)
+        public SimpleKeyBinding(string command)
         {
-            this.Key = key;
-            this.ScriptBlock = scriptBlock;
-            this.Description = description;
+            this.ScriptBlock = $"[Microsoft.PowerShell.PSReadLine]::RevertLine()\n[Microsoft.PowerShell.PSReadLine]::Insert({command})\n[Microsoft.PowerShell.PSReadLine]::AcceptLine()";
         }
     }
 }

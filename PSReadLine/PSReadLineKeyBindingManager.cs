@@ -15,12 +15,14 @@ namespace PSReadLineCustomizations
             this.JsonStream = new FileStream(jsonFilePath, FileMode.Open, FileAccess.ReadWrite);
         }
 
-        public async void SetKeyBinding(IKeyBinding keyBinding)
+        public void SetKeyBinding(IKeyBinding keyBinding)
         {
-            List<IKeyBinding> keyBindings = await JsonSerializer.DeserializeAsync<List<IKeyBinding>>
-                (JsonStream);
-            keyBindings.Add(keyBinding);
-            await JsonSerializer.SerializeAsync<List<IKeyBinding>>(this.JsonStream, keyBindings);
+            JsonNode jsonDocument;
+            jsonDocument = JsonNode.Parse(this.JsonStream);
+            foreach (JsonNode node in jsonDocument["simple"].AsArray())
+            {
+                
+            }
         }
 
         public async void DeleteKeyBinding(IKeyBinding keyBinding)
