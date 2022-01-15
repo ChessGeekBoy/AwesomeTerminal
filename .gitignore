@@ -2,3 +2,6 @@
 *.gitignore
 *.editorconfig
 *.cache
+*.dll
+*.txt
+*.gitignore

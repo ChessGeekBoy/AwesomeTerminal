@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "328cb285-7b20-423d-b418-9291ee02f1fc": {
+      "ProjectGuid": "328cb285-7b20-423d-b418-9291ee02f1fc",
+      "DisplayName": "PSReadLineCustomizations",
+      "ColorIndex": 0
+    },
+    "f8100eb8-1fad-4e10-b059-4fccb6e73df7": {
+      "ProjectGuid": "f8100eb8-1fad-4e10-b059-4fccb6e73df7",
+      "DisplayName": "Solution Items",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
