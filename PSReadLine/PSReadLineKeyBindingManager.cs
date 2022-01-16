@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Text.Json.Nodes;
+using System.Management.Automation;
+using Microsoft.PowerShell;
 
 namespace PSReadLineCustomizations
 {
@@ -15,19 +17,13 @@ namespace PSReadLineCustomizations
             this.JsonStream = new FileStream(jsonFilePath, FileMode.Open, FileAccess.ReadWrite);
         }
 
-        public void SetKeyBinding(IKeyBinding keyBinding)
+        private void LoadKeyBindings()
         {
-            JsonNode jsonDocument;
-            jsonDocument = JsonNode.Parse(this.JsonStream);
-            foreach (JsonNode node in jsonDocument["simple"].AsArray())
+            JsonNode node = JsonNode.Parse(this.JsonStream);
+            foreach (JsonNode keyBinding in node["simple"].AsArray())
             {
-                
+
             }
-        }
-
-        public async void DeleteKeyBinding(IKeyBinding keyBinding)
-        {
-
         }
 
         ~PSReadLineKeyBindingManager()

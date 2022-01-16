@@ -8,7 +8,9 @@ namespace PSReadLineCustomizations
 {
     public interface IKeyBindingManager
     {
-        void DeleteKeyBinding(IKeyBinding binding);
-        void SetKeyBinding(IKeyBinding binding);
+        void DeleteKeyBinding(SimpleKeyBinding keyBinding);
+        void DeleteKeyBinding(ComplexKeyBinding keyBinding);
+        void SetKeyBinding(SimpleKeyBinding keyBinding);
+        void SetKeyBinding(ComplexKeyBinding keyBinding);
     }
 }
