@@ -7,3 +7,6 @@
 *.gitignore
 .fudtcache.v1
 *.suo
+*.pdb
+*.assets.cache
+*.csproj.Assembly
