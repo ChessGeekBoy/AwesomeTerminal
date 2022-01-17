@@ -15,6 +15,7 @@ namespace PSReadLineCustomizations
         public PSReadLineKeyBindingManager(string jsonFilePath)
         {
             this.JsonStream = new FileStream(jsonFilePath, FileMode.Open, FileAccess.ReadWrite);
+            LoadKeyBindings();
         }
 
         private void LoadKeyBindings()
@@ -22,7 +23,21 @@ namespace PSReadLineCustomizations
             JsonNode node = JsonNode.Parse(this.JsonStream);
             foreach (JsonNode keyBinding in node["simple"].AsArray())
             {
-
+                SetPSReadLineKeyHandlerCommand setPSReadLineKeyHandler = new SetPSReadLineKeyHandlerCommand();
+                setPSReadLineKeyHandler.BriefDescription = keyBinding["description"]["brief"].ToString();
+                setPSReadLineKeyHandler.Description = keyBinding["description"]["long"].ToString();
+                setPSReadLineKeyHandler.ScriptBlock = ScriptBlock.Create($"[Microsoft.PowerShell.PSReadLine]::RevertLine()\n" +
+                    $"[Microsoft.PowerShell.PSReadLine]::Insert(\"{keyBinding["cmd"].ToString()}\")" +
+                    $"[Microsoft.PowerShell.PSReadLine]::AcceptLine()");
+                setPSReadLineKeyHandler.Invoke();
+            }
+            foreach (JsonNode complexKeyBinding in node["complex"].AsArray())
+            {
+                SetPSReadLineKeyHandlerCommand complexKeyHandler = new SetPSReadLineKeyHandlerCommand();
+                complexKeyHandler.BriefDescription = complexKeyBinding["description"]["brief"].ToString();
+                complexKeyHandler.Description = complexKeyBinding["description"]["long"].ToString();
+                complexKeyHandler.ScriptBlock = ScriptBlock.Create(complexKeyBinding["script"].ToString());
+                complexKeyHandler.Invoke();
             }
         }
 
