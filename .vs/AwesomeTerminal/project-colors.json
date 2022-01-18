@@ -5,7 +5,17 @@
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "Miscellaneous Files",
       "ColorIndex": -1
+    },
+    "328cb285-7b20-423d-b418-9291ee02f1fc": {
+      "ProjectGuid": "328cb285-7b20-423d-b418-9291ee02f1fc",
+      "DisplayName": "PSReadLineCustomizations",
+      "ColorIndex": 0
+    },
+    "f8100eb8-1fad-4e10-b059-4fccb6e73df7": {
+      "ProjectGuid": "f8100eb8-1fad-4e10-b059-4fccb6e73df7",
+      "DisplayName": "Solution Items",
+      "ColorIndex": 1
     }
   },
-  "NextColorIndex": 0
+  "NextColorIndex": 2
 }
