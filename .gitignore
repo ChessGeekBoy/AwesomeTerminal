@@ -9,4 +9,4 @@
 *.suo
 *.pdb
 *.assets.cache
-*.csproj.AssemblyReference.cache
+*.csproj.Assembly
