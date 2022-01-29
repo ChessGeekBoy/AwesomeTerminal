@@ -9,4 +9,5 @@
 *.suo
 *.pdb
 *.assets.cache
-*.csproj.Assembly
+*.csproj.AssemblyReference.cache
+*.futdcache.v1
